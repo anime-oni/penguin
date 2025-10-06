@@ -1,1 +1,1 @@
-# penguin
+# Penguins are cute!
