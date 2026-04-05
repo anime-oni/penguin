@@ -13,7 +13,7 @@ body {
   font-family: "Barriecito", system-ui;
   font-weight: 400;
   font-size: 16px;
-  background-color: var(--dark-v2-colour);
+  background-color: var(--bg-colour);
 }
 
 h1 {
@@ -39,4 +39,15 @@ h1 {
 .box:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+iframe {
+position: relative;
+width: 100%;
+padding-top: 56.25%; /* 16:9 Aspect Ratio (height/width * 100) */
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }
