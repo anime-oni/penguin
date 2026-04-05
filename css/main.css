@@ -1,1 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 
+:root {
+  --bg-colour: #36393e;
+  --accent-colour: #7AEDF5;
+  --dark-colour: #282b30;
+  --dark-v2-colour: #1e2124
+}
+
+body {
+  color: #ffffff;
+  font-family: "Barriecito", system-ui;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: var(--dark-v2-colour);
+}
+
+h1 {
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 400;
+  font-size: 65px;
+}
+
+.box {
+  background-color: var(--dark-colour);
+  border: 2px solid black;
+  padding: 10px;
+  width: 80%;
+  max-width: 500px;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px var(--accent-colour);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
