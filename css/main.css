@@ -8,7 +8,7 @@
   --dark-v2-colour: #1e2124
 }
 
-body {
+html {
   color: #ffffff;
   font-family: "Barriecito", system-ui;
   font-weight: 400;
