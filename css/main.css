@@ -3,9 +3,10 @@
 
 :root {
   --bg-colour: #36393e;
+  --dark-colour: #36393e;
   --accent-colour: #7AEDF5;
-  --dark-colour: #282b30;
-  --dark-v2-colour: #1e2124
+  --darker-colour: #282b30;
+  --darker-v2-colour: #1e2124
 }
 
 html {
@@ -23,7 +24,7 @@ h1 {
 }
 
 .box {
-  background-color: var(--dark-colour);
+  background-color: var(--darker-colour);
   border: 2px solid black;
   padding: 10px;
   width: 80%;
