@@ -12,7 +12,7 @@ body {
 
 h1 {
   color: #ffffff;
-  font-family: "M PLUS Rounded 1c", Ariel, sans-serif;
+  font-family: "M PLUS Rounded 1c", Arial, sans-serif;
   font-weight: 700;
   font-size: 2.5em;
   font-style: normal;
@@ -38,19 +38,27 @@ h3 {
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
 }
 
 .flex-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  flex: 1;
+  max-width: 300px;
+  min-width: 0;
+
   background-color: #1e2124;
   border: 2px solid black;
   padding: 10px;
-  width: 60%;
-  max-width: 300px;
   color: white;
   box-sizing: border-box;
   border-radius: 10px;
@@ -59,54 +67,44 @@ h3 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.container {
-   display: flex;
-}
-
 .code {
-   font-family: "Courier New", monospace;
-   background-color: #1e2124; /* dark background */
-   border: 1px solid #333; /* subtle border */
-   padding: 4px 8px; /* padding around text */
-   border-radius: 4px; /* rounded edges */
-   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* inner shadow for depth */
-   display: inline-block; /* fits around text */
-   overflow-wrap: break-word;
-   white-space: normal;
-   word-break: break-word;
-   font-size: 14px; /* optional */
+  font-family: "Courier New", monospace;
+  background-color: #1e2124;
+  border: 1px solid #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+  display: inline-block;
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 14px;
 }
 
-.box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-}
-
+.box:hover,
 .flex-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
 
-/* unvisited link */
+/* Links */
 a:link {
   color: #7289da;
 }
 
-/* visited link */
 a:visited {
   color: #5865F2;
 }
 
-/* mouse over link */
 a:hover {
   color: #666fff;
 }
 
-/* selected link */
 a:active {
   color: #5865F2;
 }
 
-p:hover, br:hover {
+p:hover,
+br:hover {
   background-color: #36393e;
 }
