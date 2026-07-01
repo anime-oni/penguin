@@ -104,6 +104,7 @@ a:active {
   color: #5865F2;
 }
 
+.code:hover,
 p:hover,
 br:hover {
   background-color: #36393e;
