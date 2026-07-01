@@ -24,16 +24,18 @@
 <p>
   I have also created a simple JS redirect template:
   <div class="code">
+   <pre>
     <code>
      const name = 'Test' <br>
       const link = 'https://example.com'<br>
       document.getElementById("title").innerHTML = name + '!';<br>
-      document.getElementById("error").innerHTML = `If this fails please press <a href="${link}">here></a>`<br>
+      document.getElementById("error").innerHTML = `If this fails please press <a href="${link}">here</a>`<br>
      setTimeout(web, 150)<br>
       function web() {<br>
         location.replace(link);<br>
       }
     </code>
+     </pre>
   </div>
 </p>
 </body>
