@@ -26,6 +26,13 @@ h3 {
   font-style: normal;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
 .box {
   background-color: #1e2124;
   border: 2px solid black;
