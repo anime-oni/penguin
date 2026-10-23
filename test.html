@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Pi-Hole Simple Dash </title>
     <link rel="icon" href="https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/cropped-Vortex-R-180x180.png" sizes="16x16" type="image/png">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
       body {
-        font-size: 20px;
+        /* scales between 16px (small phones) and 20px (desktop) */
+        font-size: clamp(16px, 1.5vw + 12px, 20px);
         background-color: #36393e;
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
         color: #E1E1E1;
+        margin: 0;
+        padding: 12px;
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+        -webkit-text-size-adjust: 100%;
       }
 
-      h1 {
-        font-size: 1.5em font-family: "Poppins", sans-serif;
+      h1, h2, h3 {
+        font-family: "Poppins", sans-serif;
         font-weight: 700;
         font-style: normal;
         color: #E1E1E1;
+        line-height: 1.2;
       }
 
-      h2 {
-        font-size: 1.2em font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        color: #E1E1E1;
-      }
-
-      h3 {
-        font-size: 1.05em font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        color: #E1E1E1;
-      }
+      h1 { font-size: 1.5em; }
+      h2 { font-size: 1.2em; }
+      h3 { font-size: 1.05em; }
 
       .center {
         display: flex;
@@ -44,33 +47,41 @@
         align-items: center;
       }
 
-      .b1 {
-        background-color: #F02C0A;
-        color: #E1E1E1;
-        padding: 15px 32px;
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 8px;
-        border: 2px solid black;
+        margin: 8px 0 16px;
       }
 
-      .b2 {
-        background-color: #3CF00A;
+      .logo-slot {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+      }
+
+      .b1, .b2 {
         color: #E1E1E1;
-        padding: 15px 32px;
+        padding: 14px 24px;
+        min-height: 48px;            /* comfortable touch target */
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
+        font-family: inherit;
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 8px;
         border: 2px solid black;
+        touch-action: manipulation;  /* removes double-tap zoom delay */
+        -webkit-tap-highlight-color: transparent;
       }
+
+      .b1 { background-color: #F02C0A; }
+      .b2 { background-color: #3CF00A; }
 
       button:active {
         background-color: #424242;
@@ -84,7 +95,6 @@
         width: 80%;
         max-width: 1900px;
         color: white;
-        box-sizing: border-box;
         border-radius: 10px;
         text-align: center;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -101,11 +111,53 @@
         gap: 8px;
         min-height: 100px;
       }
+
+      /* Tablets and phones */
+      @media (max-width: 768px) {
+        .box {
+          width: 100%;
+          padding: 12px;
+        }
+      }
+
+      /* Phones: stack buttons full width, two per row on larger phones */
+      @media (max-width: 600px) {
+        body { padding: 8px; }
+
+        .flex-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          min-height: 0;
+        }
+
+        .flex-container button {
+          width: 100%;
+          margin: 0;
+          padding: 14px 8px;
+        }
+
+        /* let an odd last button span the full row */
+        .flex-container button:last-child:nth-child(odd) {
+          grid-column: 1 / -1;
+        }
+      }
+
+      /* Very small phones: single column */
+      @media (max-width: 340px) {
+        .flex-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .box, button { transition: none; }
+      }
     </style>
   </head>
   <body>
     <div class="center">
-      <h1><img slot="logo" class="logo-slot" src="https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/cropped-Vortex-R-180x180.png" width="66" height="66">Pi-Hole Control Panel</h1>
+      <h1 class="title"><img slot="logo" class="logo-slot" src="https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/cropped-Vortex-R-180x180.png" width="66" height="66" alt="Pi-hole logo">Pi-Hole Control Panel</h1>
     </div>
     <div class="center">
       <div class="box">
